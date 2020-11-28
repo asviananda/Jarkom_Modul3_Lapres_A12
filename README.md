@@ -35,3 +35,24 @@ Note : File error page bisa diunduh dengan cara wget 10.151.36.202/ERR_ACCESS_DE
 Keterangan : yyy adalah nama kelompok masing-masing. Contoh: janganlupa-ta.c01.pw
 
 ## JAWAB ##
+
+**1. Buat topologi**
+
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100514843-94779b80-31aa-11eb-85da-dcd0bd052078.png"></p>
+
+Kemudian pada router, DNS server, DHCP server, dan Proxy server ditambahkan isi pada ```etc/network/interfaces``` seperti dibawah
+
+**SURABAYA (Router/DHCP relay)**
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100514903-ffc16d80-31aa-11eb-8789-c3999ae13f21.png"></p>
+
+**MALANG (DNS server)**
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100514843-94779b80-31aa-11eb-85da-dcd0bd052078.png"></p>
+
+**TUBAN (DHCP server)**
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100514843-94779b80-31aa-11eb-85da-dcd0bd052078.png"></p>
+
+**MOJOKERTO (Proxy server)**
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100514843-94779b80-31aa-11eb-85da-dcd0bd052078.png"></p>
+
+lalu kemudian di ```service networking restart``` pada semua UML diatas, dan lakukan ```iptables –t nat –A POSTROUTING –o eth0 –j MASQUERADE –s 192.168.0.0/16``` pada SURABAYA. Tidak perlu melakukan export proxy.
+

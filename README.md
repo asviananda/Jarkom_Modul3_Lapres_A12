@@ -38,7 +38,7 @@ Keterangan : yyy adalah nama kelompok masing-masing. Contoh: janganlupa-ta.c01.p
 
 **1. Buat topologi**
 
-<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100514843-94779b80-31aa-11eb-85da-dcd0bd052078.png"></p>
+<p align ="center"><img src="https://user-images.githubusercontent.com/62512432/100514843-94779b80-31aa-11eb-85da-dcd0bd052078.png"></p>
 
 Kemudian pada router, DNS server, DHCP server, dan Proxy server ditambahkan isi pada ```etc/network/interfaces``` seperti dibawah
 

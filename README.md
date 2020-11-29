@@ -43,7 +43,7 @@ Keterangan : yyy adalah nama kelompok masing-masing. Contoh: janganlupa-ta.c01.p
 Kemudian pada router, DNS server, DHCP server, dan Proxy server ditambahkan isi pada ```etc/network/interfaces``` seperti dibawah
 
 **SURABAYA (Router/DHCP relay)**
-<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100514903-ffc16d80-31aa-11eb-8789-c3999ae13f21.png"></p>
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536055-9dbb4380-3250-11eb-9c64-6e480dc2c8d9.png"></p>
 
 **MALANG (DNS server)**
 <p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100521239-dddce080-31d4-11eb-85b4-0d6f942bf516.png"></p>
@@ -58,7 +58,7 @@ lalu kemudian di ```service networking restart``` pada semua UML diatas, dan lak
 
 **2. SURABAYA jadi DHCP relay**
 
-Pertama, install DHCP relay pada SURABAYA dengan cara ```apt-get install isc-dhcp-relay``` kemudian isikan IP yang dituju dengan IP TUBAN (DHCP server), dan pada interfaces dituliskan ```eth1 eth2``` (client)
+Pertama, install DHCP relay pada SURABAYA dengan cara ```apt-get install isc-dhcp-relay``` kemudian isikan IP yang dituju dengan IP TUBAN (DHCP server), dan pada interfaces dituliskan ```eth1 eth2 eth3``` (client)
 
 <p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100523184-feab3300-31e0-11eb-9b2b-30dab7f94b7f.png"></p>
 
@@ -115,41 +115,54 @@ kemudian direstart dengan ```service networking restart```. Setelah itu untuk me
 **SUBNET 1**
 
 **GRESIK**
-<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100532837-09d97f80-3230-11eb-8ec0-f33000bfb3fc.png"></p>
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536118-eecb3780-3250-11eb-914b-b4d932e74251.png"></p>
 
 **SIDOARJO**
-<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100530920-a13bd400-322a-11eb-9431-88003c641aa8.png"></p>
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536152-1a4e2200-3251-11eb-8229-2adc08fcda1e.png"></p>
 
 **SUBNET 3**
 
 **BANYUWANGI**
-<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100530920-a13bd400-322a-11eb-9431-88003c641aa8.png"></p>
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536182-51bcce80-3251-11eb-9cdd-bb5737042843.png"></p>
 
 **MADIUN**
-<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100530920-a13bd400-322a-11eb-9431-88003c641aa8.png"></p>
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536193-72852400-3251-11eb-8d0a-a4743153e328.png"></p>
+
+Berdasarkan hasil testing diatas, dapat dinyatakan bahwa DHCP berhasil.
 
 **7. Membuat authentication user**
 
 Pertama, install apache dengan cara ```apt-get install apache2-utils``` kemudian untuk membuat authentication user baru bisa dengan cara ```htpasswd -c /etc/squid/passwd userta_a12``` dan ketikan password ```inipassw0rdta_a12```. Lalu pada ```/etc/squid/squid.conf``` ditambahkan
 
-```
-auth_param basic program /usr/lib/squid/ncsa_auth /etc/squid/passwd
-auth_param basic children 5
-auth_param basic realm Proxy
-auth_param basic credentialsttl 2 hours
-auth_param basic casesensitive on
-acl USERS proxy_auth REQUIRED
-http_access allow USERS
-```
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536501-93e70f80-3253-11eb-9767-0752157acc24.png"></p>
+
 Kemudian apabila berhasil, didapatkan hasil seperti dibawah
 
 <p align ="center"><img src="https://user-images.githubusercontent.com/62512432/100533188-165fd700-3234-11eb-8526-c6d30fe2a870.JPG"></p>
 
 **8. Membatasi waktu akses internet dengan waktu akses hari Selasa-Rabu pukul 13:00 - 18:00**
 
+Pertama, tentukan batas waktu yang diperlukan untuk mengakses web di ```/etc/squid/acl.conf``` di MOJOKERTO
+
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536280-238bbe80-3252-11eb-9371-798d1ece1b73.png"></p>
+
+lalu pada ```/etc/squid/squid.conf``` tambahkan isi seperti dibawah
+
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536308-546bf380-3252-11eb-9bb0-0e630cd8c297.png"></p>
+
+
 **9. Ditambah waktu akses internet yaitu hari Selasa-Kamis pukul 21.00 - 09.00 keesokan harinya (sampai Jumat jam 09.00)**
 
+Pada ```/etc/squid/acl.conf``` ditambahkan
+
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536370-c2181f80-3252-11eb-99c7-3550b441344a.png"></p>
+
+lalu pada ```/etc/squid/squid.conf```
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536415-07d4e800-3253-11eb-94f8-03505bf196c1.png"></p>
+
 **10. Redirect dari google.com ke monta.if.its.ac.id**
+
+
 
 **11. Mengubah halaman access error**
 

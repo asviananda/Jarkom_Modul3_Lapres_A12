@@ -72,7 +72,7 @@ untuk testing apakah DHCP berhasil, dilakukan testing pada client dengan ketentu
 
 Pada TUBAN, buka ```/etc/dhcp/dhcpd.conf``` kemudian tambahkan subnet yang berisi range IP yang diminta soal
 
-<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100523990-12f22e80-31e7-11eb-887e-74dd499175fe.png"></p>
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100535420-4f577600-324b-11eb-9da2-1b4a955312d6.png"></p>
 
 kemudian di restart dengan ```service isc-dhcp-server restart```
 

@@ -130,6 +130,21 @@ kemudian direstart dengan ```service networking restart```. Setelah itu untuk me
 
 **7. Membuat authentication user**
 
+Pertama, install apache dengan cara ```apt-get install apache2-utils``` kemudian untuk membuat authentication user baru bisa dengan cara ```htpasswd -c /etc/squid/passwd userta_a12``` dan ketikan password ```inipassw0rdta_a12```. Lalu pada ```/etc/squid/squid.conf``` ditambahkan
+
+```
+auth_param basic program /usr/lib/squid/ncsa_auth /etc/squid/passwd
+auth_param basic children 5
+auth_param basic realm Proxy
+auth_param basic credentialsttl 2 hours
+auth_param basic casesensitive on
+acl USERS proxy_auth REQUIRED
+http_access allow USERS
+```
+Kemudian apabila berhasil, didapatkan hasil seperti dibawah
+
+<p align ="center"><img src="https://user-images.githubusercontent.com/62512432/100533188-165fd700-3234-11eb-8526-c6d30fe2a870.JPG"></p>
+
 **8. Membatasi waktu akses internet dengan waktu akses hari Selasa-Rabu pukul 13:00 - 18:00**
 
 **9. Ditambah waktu akses internet yaitu hari Selasa-Kamis pukul 21.00 - 09.00 keesokan harinya (sampai Jumat jam 09.00)**

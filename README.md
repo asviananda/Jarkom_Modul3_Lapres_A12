@@ -43,7 +43,7 @@ Keterangan : yyy adalah nama kelompok masing-masing. Contoh: janganlupa-ta.c01.p
 Kemudian pada router, DNS server, DHCP server, dan Proxy server ditambahkan isi pada ```etc/network/interfaces``` seperti dibawah
 
 **SURABAYA (Router/DHCP relay)**
-<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536055-9dbb4380-3250-11eb-9c64-6e480dc2c8d9.png"></p>
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536542-e9bbb780-3253-11eb-9839-b0e8a5d4d0d4.png"></p>
 
 **MALANG (DNS server)**
 <p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100521239-dddce080-31d4-11eb-85b4-0d6f942bf516.png"></p>
@@ -60,7 +60,7 @@ lalu kemudian di ```service networking restart``` pada semua UML diatas, dan lak
 
 Pertama, install DHCP relay pada SURABAYA dengan cara ```apt-get install isc-dhcp-relay``` kemudian isikan IP yang dituju dengan IP TUBAN (DHCP server), dan pada interfaces dituliskan ```eth1 eth2 eth3``` (client)
 
-<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100523184-feab3300-31e0-11eb-9b2b-30dab7f94b7f.png"></p>
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536055-9dbb4380-3250-11eb-9c64-6e480dc2c8d9.png"></p>
 
 setelahnya, install DHCP server pada TUBAN dengan cara ```apt-get install isc-dhcp-server``` kemudian pada interfaces dituliskan ```eth0```
 

@@ -175,7 +175,7 @@ untuk melakukan testing apakah berhasil atau tidak, pastikan proxy sudah menyala
 
 **11. Mengubah halaman access error**
 
-**12. Membuat domain yang mengarah ke IP DHCP server**
+**12. Membuat domain untuk menggantikan IP DHCP server**
 
 Pada MALANG, install bind9 terlebih dahulu dengan cara ```apt-get install bind9```. Kemudian, apabila sudah selesai bisa membuka ```/etc/bind/named.conf.local``` dan tambahkan seperti gambar dibawah
 

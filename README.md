@@ -158,12 +158,31 @@ Pada ```/etc/squid/acl.conf``` ditambahkan
 <p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536370-c2181f80-3252-11eb-99c7-3550b441344a.png"></p>
 
 lalu pada ```/etc/squid/squid.conf```
+
 <p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536415-07d4e800-3253-11eb-94f8-03505bf196c1.png"></p>
 
 **10. Redirect dari google.com ke monta.if.its.ac.id**
 
+Pada ```/etc/squid/squid.conf``` ditambahkan
 
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536668-aa419b00-3254-11eb-9ba7-e7b57b140e48.png"></p>
+
+untuk melakukan testing apakah berhasil atau tidak, pastikan proxy sudah menyala dan mengarah ke IP MOJOKERTO dengan port 8080. Lalu, buka dengan Mozilla Firefox mode incognito agar dapat mengakses, pastikan waktu untuk mengakses sudah sesuai dengan ketentuan soal. Lalu ketik ```google.com``` (tanpa '/' dibelakangnya) dan apabila berhasil, maka akan otomatis membuka monta.if.its.ac.id. Namun, apabila masih belum berhasil/diakses pada waktu yang salah, maka akan keluar "ERROR".
+
+**ISI KONFIGURASI /etc/squid/squid.conf**
+
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536752-35bb2c00-3255-11eb-8d9f-b2dd09e667d9.png"></p>
 
 **11. Mengubah halaman access error**
 
 **12. Membuat domain yang mengarah ke IP DHCP server**
+
+Pada MALANG, install bind9 terlebih dahulu dengan cara ```apt-get install bind9```. Kemudian, apabila sudah selesai bisa membuka ```/etc/bind/named.conf.local``` dan tambahkan seperti gambar dibawah
+
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536778-7450e680-3255-11eb-845f-2418124f99ea.png"></p>
+
+kemudian, buka ```/etc/bind/jarkom/janganlupa-ta.a12.pw``` dan ubah menjadi seperti gambar dibawah
+
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100536822-c134bd00-3255-11eb-9206-ca5a4354c5b3.png"></p>
+
+selanjutnya untuk mengetes apakah berfungsi atau tidak, pada proxy settings ubah IP MOJOKERTO menjadi domain ```janganlupa-ta.a12.pw``` dan port tetap pada 8080. Apabila bisa dipakai mengakses, maka berhasil.

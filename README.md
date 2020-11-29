@@ -100,6 +100,34 @@ Kemudian tambahkan lama waktu peminjaman IP sesuai dengan yang diminta soal
 
 **ISI KESELURUHAN CONFIG /etc/dhcp/dhcpd.conf**
 
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100530920-a13bd400-322a-11eb-9431-88003c641aa8.png"></p>
+
+Kemudian, ditest pada client dengan cara mengubah isi ```/etc/network/interfaces``` menjadi
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+```
+kemudian direstart dengan ```service networking restart```. Setelah itu untuk melihat hasilnya, menggunakan ```ifconfig``` untuk melihat range IP, dan ```cat /etc/resolv.conf``` untuk melihat apakah client sudah mendapatkan IP DNS Malang dan DNS 202.46.129.2 dari DHCP 
+
+**SUBNET 1**
+
+**GRESIK**
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100532837-09d97f80-3230-11eb-8ec0-f33000bfb3fc.png"></p>
+
+**SIDOARJO**
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100530920-a13bd400-322a-11eb-9431-88003c641aa8.png"></p>
+
+**SUBNET 3**
+
+**BANYUWANGI**
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100530920-a13bd400-322a-11eb-9431-88003c641aa8.png"></p>
+
+**MADIUN**
+<p align ="center"><img width="500" src="https://user-images.githubusercontent.com/62512432/100530920-a13bd400-322a-11eb-9431-88003c641aa8.png"></p>
+
 **7. Membuat authentication user**
 
 **8. Membatasi waktu akses internet dengan waktu akses hari Selasa-Rabu pukul 13:00 - 18:00**
